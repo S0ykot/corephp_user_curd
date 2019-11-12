@@ -1,4 +1,8 @@
-<!DOCTYPE html>
+<?php
+
+require_once('../php/functions.php');
+
+?>
 <html>
 <head>
 	<title>User List</title>
@@ -19,24 +23,35 @@
 			<th>Type</th> 
 			<th>Action</th> 
 		</tr>
-		<tr>
-			<td>Test</td>
-			<td>Test</td>
-			<td>Test</td>
+		<?php
+
+		$users = all_users();
+		if (mysqli_num_rows($users)>0) {
+			while ($row=mysqli_fetch_assoc($users)) {
+			if ($row['type']=='0') {
+				$type='user';
+			}
+			else
+			{
+				$type='admin';
+			}
+			echo '
+			<tr>
+			<td>'.$row['username'].'</td>
+			<td>'.$row['username'].'</td>
+			<td>'.$type.'</td>
 			<td>
 				<a href="edit.php">EDIT</a> |
-				<a href="delete.php">DELETE</a> |
+				<a href="delete.php">DELETE</a>
 			</td>
-		</tr>
-		<tr>
-			<td>Test</td>
-			<td>Test</td>
-			<td>Test</td>
-			<td>
-				<a href="edit.php">EDIT</a> |
-				<a href="delete.php">DELETE</a> |
-			</td>
-		</tr>
+			</tr>
+			';
+		}
+		}
+
+		
+
+		?>
 	</table>
 </body>
 </html>

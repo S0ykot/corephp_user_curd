@@ -27,4 +27,12 @@
 
 	}
 
+	function all_users()
+	{
+		$conn=getConnection();
+		$sql = "select * from users";
+		$result = mysqli_query($conn,$sql);
+		return $result;
+	}
+
 ?>
