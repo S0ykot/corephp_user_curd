@@ -41,8 +41,8 @@ require_once('../php/functions.php');
 			<td>'.$row['username'].'</td>
 			<td>'.$type.'</td>
 			<td>
-				<a href="edit.php">EDIT</a> |
-				<a href="delete.php">DELETE</a>
+				<a href="edit.php?id='.$row['id'].'">EDIT</a> |
+				<a href="delete.php?id='.$row['id'].'">DELETE</a>
 			</td>
 			</tr>
 			';

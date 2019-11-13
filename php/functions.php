@@ -35,4 +35,13 @@
 		return $result;
 	}
 
+	function update_details($id)
+	{
+		//ss
+		$conn =getConnection();
+		$sql = "select * from users where id=".$id;
+		$result = mysqli_query($conn,$sql);
+		return $result;
+	}
+
 ?>
