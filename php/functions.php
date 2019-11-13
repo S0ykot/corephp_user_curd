@@ -5,7 +5,7 @@
 
 		$conn = getConnection();
 		
-		$sql = "select * from users where username='{$uname}' and password='{$password}'";
+		$sql = "SELECT * from users where username='{$uname}' and password='{$password}'";
 
 		$result = mysqli_query($conn, $sql);
 		$user = mysqli_fetch_assoc($result);
@@ -17,7 +17,7 @@
 	function register($uname, $password, $email){
 
 		$conn = getConnection();
-		$sql = "insert into users values('', '{$uname}','{$password}', '{$email}', 0)";
+		$sql = "INSERT into users values('', '{$uname}','{$password}', '{$email}', 0)";
 
 		if(mysqli_query($conn, $sql)){
 			return true;
@@ -35,13 +35,25 @@
 		return $result;
 	}
 
-	function update_details($id)
+	function get_user($id)
 	{
 		//ss
 		$conn =getConnection();
-		$sql = "select * from users where id=".$id;
+		$sql = "SELECT * from users where id=".$id;
 		$result = mysqli_query($conn,$sql);
 		return $result;
+	}
+	function update_user($id,$username,$password,$type,$email)
+	{
+		$conn = getConnection();
+		$sql="UPDATE users SET password='$password',email='$email',type=$type WHERE id=$id AND username='$username'";
+		if (mysqli_query($conn,$sql)) {
+			return TRUE;
+		}
+		else
+		{
+			return FALSE;
+		}
 	}
 
 ?>

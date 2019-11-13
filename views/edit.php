@@ -5,7 +5,7 @@ require_once('../php/functions.php');
 
 if ($_GET['id']) {
 	$id=$_GET['id'];
-	$data = update_details($id);
+	$data = get_user($id);
 	if (mysqli_num_rows($data)>0) {
 		while ($row=mysqli_fetch_assoc($data)) {
 			$uname = $row['username'];
@@ -18,7 +18,11 @@ if ($_GET['id']) {
 }
 else
 {
-	$id=null;
+			$uname = '';
+			$pass = '';
+			$type = '';
+			$email = '';
+			$type='';
 }
 
 ?>
@@ -43,22 +47,22 @@ else
 		</tr>
 		<tr>
 			<td>New Password:</td>
-			<td><input type="password" name="pass"></td>
+			<td><input type="password" name="npass"></td>
 		</tr>
 		<tr>
 			<td>Current Password:</td>
-			<td><input type="password" name="pass1"></td>
+			<td><input type="password" name="cpass"></td>
 		</tr>
 		<tr>
 			<td>Type</td>
 			<td>
-				<select>
+				<select name="type">
 					<option></option>
 					<option value="1"
-					<?php if($type==1){echo "selected";} ?>
+					<?php if($type==1){echo "selected";}else{echo "";} ?>
 					>Admin</option>
 					<option value="0"
-					<?php if($type==0){echo "selected";} ?>
+					<?php if($type==0){echo "selected";}else{echo "";} ?>
 					>User</option>
 				</select>
 			</td>
