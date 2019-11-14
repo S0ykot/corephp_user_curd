@@ -1,19 +1,41 @@
 <?php
-
-require_onece('functions.php');
+session_start();
+require_once('functions.php');
 
 if (isset($_POST['submit'])) {
 	
-	
 
-
-
-	$uname = $_POST['username'];
 	$email = $_POST['email'];
 	$npass = $_POST['npass'];
 	$cpass = $_POST['cpass'];
 	$type = $_POST['type'];
 
+	if (empty($email) || empty($cpass) || $type==-1) {
+		die ( "Blank / invalid input" );
+	}
+	else
+	{
+		if ($cpass==$_SESSION['pass']) {
+			if ($npass=='') {
+				$npass = $_SESSION['pass'];
+				$status = update_user($_SESSION['id'],$_SESSION['uname'],$npass,$type,$email);
+			if ($status) {
+				header('location: ../views/userlist.php');
+				$_SESSION['id']='';
+				$_SESSION['uname'] = '';
+				$_SESSION['pass'] ='';
+			}
+			else
+			{
+				die("Something wrong!!");
+			}
+			}
+		}
+		else
+		{
+			die("Current password not matching");
+		}
+	}
 
 }
 

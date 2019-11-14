@@ -55,5 +55,17 @@
 			return FALSE;
 		}
 	}
+	function del_user($id)
+	{
+		$conn = getConnection();
+		$sql = "DELETE FROM users WHERE id=".$id;
+		if (mysqli_query($conn,$sql)) {
+			return TRUE;
+		}
+		else
+		{
+			return FALSE;
+		}
+	}
 
 ?>

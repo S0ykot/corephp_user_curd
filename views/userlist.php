@@ -42,15 +42,12 @@ require_once('../php/functions.php');
 			<td>'.$type.'</td>
 			<td>
 				<a href="edit.php?id='.$row['id'].'">EDIT</a> |
-				<a href="delete.php?id='.$row['id'].'">DELETE</a>
+				<a href="../php/delete.php?id='.$row['id'].'" onclick="return confirm(`Are you sure?`);">DELETE</a>
 			</td>
 			</tr>
 			';
 		}
 		}
-
-		
-
 		?>
 	</table>
 </body>

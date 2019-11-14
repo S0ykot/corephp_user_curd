@@ -1,13 +1,29 @@
 
 <?php
-
+session_start();
 require_once('../php/functions.php');
-
+$uname = '';
+$pass = '';
+$type = '';
+$email = '';
+$type=null;
 if ($_GET['id']) {
 	$id=$_GET['id'];
-	$data = get_user($id);
-	if (mysqli_num_rows($data)>0) {
-		while ($row=mysqli_fetch_assoc($data)) {
+	if (is_numeric($id)) {
+		$data = get_user($id);
+		$row=mysqli_fetch_assoc($data);
+		if ($row['id']<$id) {
+			$uname = '';
+			$pass = '';
+			$type = '';
+			$email = '';
+			$type=-1;
+		}
+		else
+		{
+			$_SESSION['id']=$row['id'];
+			$_SESSION['uname'] = $row['username'];
+			$_SESSION['pass'] =$row['password'];
 			$uname = $row['username'];
 			$pass = $row['password'];
 			$type = $row['type'];
@@ -15,14 +31,20 @@ if ($_GET['id']) {
 			$type = $row['type'];
 		}
 	}
+	else
+	{
+		die ( "Hacking attempt!!!" );
+	}
+	
 }
 else
 {
+			$id='';
 			$uname = '';
 			$pass = '';
 			$type = '';
 			$email = '';
-			$type='';
+			$type=-1;
 }
 
 ?>
@@ -57,7 +79,9 @@ else
 			<td>Type</td>
 			<td>
 				<select name="type">
-					<option></option>
+					<option value="-1"
+					<?php if($type==-1){echo "selected";}else{echo "";} ?>
+					></option>
 					<option value="1"
 					<?php if($type==1){echo "selected";}else{echo "";} ?>
 					>Admin</option>
