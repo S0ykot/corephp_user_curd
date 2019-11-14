@@ -1,4 +1,13 @@
-<!DOCTYPE html>
+
+<?php 
+
+if (isset($_GET['msg'])) {
+	echo ("<script>alert('Error')</script>");
+}
+
+?>
+
+
 <html>
 <head>
 	<title>Login Page</title>

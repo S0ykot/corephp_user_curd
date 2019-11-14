@@ -7,7 +7,7 @@ $pass = '';
 $type = '';
 $email = '';
 $type=null;
-if ($_GET['id']) {
+if (isset($_GET['id'])) {
 	$id=$_GET['id'];
 	if (is_numeric($id)) {
 		$data = get_user($id);

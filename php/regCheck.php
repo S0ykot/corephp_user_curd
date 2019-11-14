@@ -2,6 +2,7 @@
 	
 	require_once('functions.php');
 
+	
 	if(isset($_POST['submit'])){
 
 		$uname = $_POST['uname'];
@@ -18,7 +19,7 @@
 
 				header('location: ../views/login.php?msg=success');
 			}else{
-				header('location: ../views/reg.php?msg=dberror');
+				header('location: ../views/reg.php?msg=error');
 			}
 		}
 
