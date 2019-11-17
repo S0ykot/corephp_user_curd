@@ -2,9 +2,6 @@
 	
 	if(isset($_GET['msg'])){
 		
-/*		if($_GET['msg'] == 'success'){
-
-		}*/
 		echo $_GET['msg'];
 	}
 
@@ -14,6 +11,9 @@
 <html>
 <head>
 	<title>Login Page</title>
+	<style type="text/css">
+		button{background: #255b89; border: none;color: white;cursor: pointer; padding: 5px 10px; text-decoration: none;}
+	</style>
 </head>
 <body>
 
@@ -30,13 +30,13 @@
 				<td><input type="password" name="pass"></td>
 			</tr>
 			<tr>
-				<td><input type="submit" name="submit" value="Submit"></td>
+				<td><input type="submit" name="submit" value="Submit" style="background: #255b89; border: none;color: white;cursor: pointer; padding: 5px 10px; text-decoration: none;"></td>
 				<td></td>
 			</tr>
 		</table>
 		</fieldset>
 	</form>
 
-	<a href="reg.php">Signup</a>
+	<a href="reg.php"><button>Signup</button></a>
 </body>
 </html>

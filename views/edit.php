@@ -76,20 +76,7 @@ else
 			<td><input type="password" name="cpass"></td>
 		</tr>
 		<tr>
-			<td>Type</td>
-			<td>
-				<select name="type">
-					<option value="-1"
-					<?php if($type==-1){echo "selected";}else{echo "";} ?>
-					></option>
-					<option value="1"
-					<?php if($type==1){echo "selected";}else{echo "";} ?>
-					>Admin</option>
-					<option value="0"
-					<?php if($type==0){echo "selected";}else{echo "";} ?>
-					>User</option>
-				</select>
-			</td>
+			
 		</tr>
 		<tr>
 			<td><input type="submit" name="submit" value="Update"></td>
@@ -98,6 +85,6 @@ else
 	</table>
 </form>
 </fieldset>
-
+<a href="home.php">Back</a>
 </body>
 </html>

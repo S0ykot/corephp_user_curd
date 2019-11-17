@@ -16,8 +16,8 @@
 
 			if($count > 0){
 				
-				$_SESSION['username'] = $uname;
-				$_SESSION['password'] = $password;
+				//$_SESSION['username'] = $uname;
+				//$_SESSION['password'] = $password;
 
 				setcookie("username", $uname, time()+3600, "/");
 				header('location: ../views/home.php');

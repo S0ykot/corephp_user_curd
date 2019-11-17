@@ -7,13 +7,16 @@
 <html>
 <head>
 	<title>Home page</title>
+	<style type="text/css">
+		button{background: #255b89; border: none;color: white;cursor: pointer; padding: 5px 10px; text-decoration: none;}
+	</style>
 </head>
 <body>
 
 	<h1>Add New User</h1> 
 	
-	<a href="home.php">Back</a> |  
-	<a href="../php/logout.php">logout</a>
+	<a href="home.php"><button>Back</button></a>   
+	<a href="../php/logout.php"><button>logout</button></a>
 
 	<form method="post" action="../php/insertUser.php">
 		<table>
@@ -31,7 +34,7 @@
 			</tr>
 			<tr>
 				<td></td>
-				<td><input type="submit" name="submit" value="Save"></td>
+				<td><input type="submit" name="submit" value="Save" style="background: #255b89; border: none;color: white;cursor: pointer; padding: 5px 10px; text-decoration: none;"></td>
 			</tr>
 		</table>
 	</form>
@@ -44,7 +47,7 @@
 
 <?php		
 	}else{
-		header('location: login.html');
+		header('location: login.php');
 	}
 
 ?>

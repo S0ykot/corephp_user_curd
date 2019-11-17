@@ -8,7 +8,6 @@ if (isset($_POST['submit'])) {
 	$email = $_POST['email'];
 	$npass = $_POST['npass'];
 	$cpass = $_POST['cpass'];
-	$type = $_POST['type'];
 
 	if (empty($email) || empty($cpass) || $type==-1) {
 		die ( "Blank / invalid input" );
@@ -18,7 +17,7 @@ if (isset($_POST['submit'])) {
 		if ($cpass==$_SESSION['pass']) {
 			if ($npass=='') {
 				$npass = $_SESSION['pass'];
-				$status = update_user($_SESSION['id'],$_SESSION['uname'],$npass,$type,$email);
+				$status = update_user($_SESSION['id'],$_SESSION['uname'],$npass,0,$email);
 			if ($status) {
 				header('location: ../views/userlist.php');
 				$_SESSION['id']='';
